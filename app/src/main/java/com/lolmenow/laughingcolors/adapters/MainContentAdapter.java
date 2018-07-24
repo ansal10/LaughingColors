@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.lolmenow.laughingcolors.R;
 import com.lolmenow.laughingcolors.models.Content;
@@ -75,11 +76,16 @@ public class MainContentAdapter extends RecyclerView.Adapter {
     }
 
 
-    public class ImageTypeViewHolder extends RecyclerView.ViewHolder{
+    public class ImageTypeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.image_content_cell_imageview_id) public ImageView imageView;
         @BindView(R.id.image_content_cell_share_imageview_id)public ImageView shareImageView;
         @BindView(R.id.image_content_cell_download_imageview_id)public ImageView downloadImageView;
         @BindView(R.id.image_content_cell_whatsapp_imageview_id)public ImageView whatsappImageView;
+        @BindView(R.id.image_content_cell_like_imageview_id)public ImageView likeImageView;
+        @BindView(R.id.image_content_cell_dislike_imageview_id)public ImageView dislikeImageView;
+        @BindView(R.id.image_content_cell_comment_imageview_id)public ImageView commentImageView;
+        @BindView(R.id.image_content_cell_fav_imageview_id)public ImageView favImageView;
+
 
         public ImageTypeViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -89,8 +95,20 @@ public class MainContentAdapter extends RecyclerView.Adapter {
         public void bind(final Content content) {
             picasso.load(content.imageUrl)
                     .error(R.drawable.ic_launcher_background)
+                    .placeholder(R.drawable.progress_animation)
                     .into(imageView);
 
+            favImageView.setOnClickListener(this);
+            likeImageView.setOnClickListener(this);
+            dislikeImageView.setOnClickListener(this);
+            commentImageView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (view.getId() == favImageView.getId()){
+                Picasso.get().load(R.drawable.favorite_filled).into(favImageView);
+            }
         }
     }
 }
