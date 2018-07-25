@@ -40,7 +40,7 @@ public class Content {
         List<Content> contentList = new ArrayList<>();
         for (int i = 1 ; i <= 2195 ; i++){
             String url = String.format("http://104.236.43.23:3001/laughingcolours/%s.jpg",i);
-            contentList.add(new Content("", "", url, ContentType.IMAGE));
+            contentList.add(new Content(i+"", "", url, ContentType.IMAGE));
         }
         return contentList;
     }
