@@ -108,7 +108,10 @@ public class MainContentAdapter extends RecyclerView.Adapter {
         public void onClick(View view) {
             if (view.getId() == favImageView.getId()){
                 Picasso.get().load(R.drawable.favorite_filled).into(favImageView);
-            }
+            }else if (view.getId() == likeImageView.getId())
+                Picasso.get().load(R.drawable.like_filled).into(likeImageView);
+            else if (view.getId() == dislikeImageView.getId())
+                Picasso.get().load(R.drawable.dislike_filled).into(dislikeImageView);
         }
     }
 }

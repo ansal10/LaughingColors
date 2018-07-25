@@ -124,7 +124,7 @@
                 app:layout_constraintStart_toEndOf="@+id/textView2"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/dislike_dark" />
+                app:srcCompat="@drawable/dislike_hollow" />
 
             <ImageView
                 android:id="@+id/image_content_cell_like_imageview_id"
@@ -137,7 +137,7 @@
                 app:layout_constraintDimensionRatio="h,1:1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/like_dark" />
+                app:srcCompat="@drawable/like_hollow" />
 
             <ImageView
                 android:id="@+id/image_content_cell_fav_imageview_id"
@@ -150,7 +150,7 @@
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/favorite_dark" />
+                app:srcCompat="@drawable/favorite_hollow" />
 
             <TextView
                 android:id="@+id/textView"

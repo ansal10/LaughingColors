@@ -3,6 +3,10 @@ package com.lolmenow.laughingcolors.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter @Setter
 public class Content {
 
     public String id;
@@ -34,8 +38,8 @@ public class Content {
     
     public static List<Content> dummpyData(){
         List<Content> contentList = new ArrayList<>();
-        for (int i = 0 ; i < 25 ; i++){
-            String url = String.format("http://104.236.43.23:3001/deepika/%s.jpeg",i);
+        for (int i = 1 ; i <= 2195 ; i++){
+            String url = String.format("http://104.236.43.23:3001/laughingcolours/%s.jpg",i);
             contentList.add(new Content("", "", url, ContentType.IMAGE));
         }
         return contentList;

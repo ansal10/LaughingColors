@@ -32,6 +32,5 @@ public class MainActivity extends AppCompatActivity {
         mainContentRecyclerView.setHasFixedSize(true);
         mainContentRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mainContentRecyclerView.setAdapter(mainContentAdapter);
-
     }
 }
