@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "436657937782",
+    "firebase_url": "https://laughing-colours-582eb.firebaseio.com",
+    "project_id": "laughing-colours-582eb",
+    "storage_bucket": "laughing-colours-582eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436657937782:android:97487a397bb55548",
+        "android_client_info": {
+          "package_name": "com.lolmenow.laughingcolors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436657937782-55gd0mudjq3d0hnqf0tl9mmn5ngqps3t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lolmenow.laughingcolors",
+            "certificate_hash": "1684acc880add6b21248c5798795dcc358f78313"
+          }
+        },
+        {
+          "client_id": "436657937782-oaam12ehndsfoqv0sl5plec1ni6scc3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA92GCWv1BMmw4eMQksN9fD4x_Mghc_5go"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436657937782-oaam12ehndsfoqv0sl5plec1ni6scc3m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

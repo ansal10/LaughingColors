@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements MainContentAdapte
 
     public MainContentAdapter mainContentAdapter;
     @BindView(R.id.activity_main_recycler_view_id) public RecyclerView mainContentRecyclerView;
+    @BindView(R.id.my_toolbar) Toolbar mToolbar;
 
 
     @Override
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements MainContentAdapte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
+        setSupportActionBar(mToolbar);
         SnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(mainContentRecyclerView);
         mainContentAdapter = new MainContentAdapter(Content.dummpyData(), this);

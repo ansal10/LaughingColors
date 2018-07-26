@@ -88,8 +88,6 @@ public class MainContentAdapter extends RecyclerView.Adapter {
         public ImageView likeImageView;
         @BindView(R.id.image_content_cell_dislike_imageview_id)
         public ImageView dislikeImageView;
-        @BindView(R.id.image_content_cell_comment_imageview_id)
-        public ImageView commentImageView;
         @BindView(R.id.image_content_cell_fav_imageview_id)
         public ImageView favImageView;
 
@@ -106,7 +104,7 @@ public class MainContentAdapter extends RecyclerView.Adapter {
         public void bind(final Content content) {
             this.content = content;
             picasso.load(content.imageUrl)
-                    .error(R.drawable.ic_launcher_background)
+                    .error(R.drawable.ic_launcher)
                     .placeholder(R.drawable.progress_animation)
                     .into(imageView);
 
@@ -117,7 +115,6 @@ public class MainContentAdapter extends RecyclerView.Adapter {
             favImageView.setOnClickListener(this);
             likeImageView.setOnClickListener(this);
             dislikeImageView.setOnClickListener(this);
-            commentImageView.setOnClickListener(this);
             shareImageView.setOnClickListener(this);
             whatsappImageView.setOnClickListener(this);
         }

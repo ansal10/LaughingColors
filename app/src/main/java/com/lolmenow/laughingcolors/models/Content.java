@@ -1,6 +1,7 @@
 package com.lolmenow.laughingcolors.models;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import lombok.Getter;
@@ -42,6 +43,7 @@ public class Content {
             String url = String.format("http://104.236.43.23:3001/laughingcolours/%s.jpg",i);
             contentList.add(new Content(i+"", "", url, ContentType.IMAGE));
         }
+        Collections.shuffle(contentList);
         return contentList;
     }
 }

@@ -3,6 +3,8 @@ package com.lolmenow.laughingcolors;
 import android.app.Application;
 import android.content.Context;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
@@ -15,7 +17,7 @@ public class MyApplication extends Application {
     private static MyApplication instance;
     private static final String TAG = MyApplication.class.getSimpleName();
 //    private DatabaseReference mUserDatabase;
-//    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
 
     @Override
     public void onCreate() {
@@ -31,28 +33,8 @@ public class MyApplication extends Application {
         Picasso built = builder.build();
         built.setLoggingEnabled(true);
         Picasso.setSingletonInstance(built);
-
-//        mAuth = FirebaseAuth.getInstance();
-//
-//        if(mAuth.getCurrentUser() != null) {
-//
-//            mUserDatabase = FirebaseDatabase.getInstance()
-//                    .getReference().child("users").child(mAuth.getCurrentUser().getUid());
-//
-//            mUserDatabase.addValueEventListener(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(DataSnapshot dataSnapshot) {
-//                    if (dataSnapshot != null) {
-//                        mUserDatabase.child("online").onDisconnect().setValue(ServerValue.TIMESTAMP);
-//                    }
-//                }
-//
-//                @Override
-//                public void onCancelled(DatabaseError databaseError) {
-//
-//                }
-//            });
-//        }
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
         super.onCreate();
         instance = this;
     }
