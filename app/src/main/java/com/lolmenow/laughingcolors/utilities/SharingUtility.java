@@ -16,7 +16,7 @@ public class SharingUtility {
 
 
     public static final String WHATSAPP_PACKAGE_NAME = "com.whatsapp";
-    public static final String DOWNLOAD_APP_MESSAGE = "For more memes download laughing colours app http://bitly.com";
+    public static final String DOWNLOAD_APP_MESSAGE = "For more funny memes download Laughing colours official app at http://bit.ly/2Lmn1Oh";
 
     public static void shareImage(Bitmap bitmap, String text, String packageName){
         Context context = MyApplication.getInstance().getApplicationContext();

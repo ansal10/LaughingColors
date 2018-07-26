@@ -9,10 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.lolmenow.laughingcolors.R;
 import com.lolmenow.laughingcolors.models.Content;
 import com.lolmenow.laughingcolors.models.UserData;
+import com.lolmenow.laughingcolors.utilities.FormatterUtility;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -45,7 +47,7 @@ public class MainContentAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view;
-        if (contentList.get(i).contentType == Content.ContentType.IMAGE) {
+        if (contentList.get(i).getContentType() == Content.ContentType.IMAGE) {
             view = LayoutInflater.from(viewGroup.getContext())
                     .inflate(R.layout.image_content_cell, viewGroup, false);
             return new ImageTypeViewHolder(view, activity);
@@ -71,7 +73,7 @@ public class MainContentAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemViewType(int position) {
-        return contentList.get(position).contentType.getValue();
+        return contentList.get(position).getContentType().getValue();
     }
 
 
@@ -90,6 +92,10 @@ public class MainContentAdapter extends RecyclerView.Adapter {
         public ImageView dislikeImageView;
         @BindView(R.id.image_content_cell_fav_imageview_id)
         public ImageView favImageView;
+        @BindView(R.id.image_content_cell_like_textview_id)
+        public TextView likeTextView;
+        @BindView(R.id.image_content_cell_dislike_textview_id)
+        public TextView dislikeTextView;
 
         public Activity activity;
         public Content content;
@@ -103,7 +109,7 @@ public class MainContentAdapter extends RecyclerView.Adapter {
 
         public void bind(final Content content) {
             this.content = content;
-            picasso.load(content.imageUrl)
+            picasso.load(content.getImageUrl())
                     .error(R.drawable.ic_launcher)
                     .placeholder(R.drawable.ic_launcher)
                     .into(imageView);
@@ -112,6 +118,8 @@ public class MainContentAdapter extends RecyclerView.Adapter {
             if (userData.likesSet.contains(content.getId())) likeImageView.setImageResource(R.drawable.like_filled);
             if (userData.dislikesSet.contains(content.getId())) dislikeImageView.setImageResource(R.drawable.dislike_filled);
             if (userData.favoriteSet.contains(content.getId())) favImageView.setImageResource(R.drawable.favorite_filled);
+            likeTextView.setText(FormatterUtility.readableNumberFormat(content.getLikesCount()));
+            dislikeTextView.setText(FormatterUtility.readableNumberFormat(content.getDislikesCount()));
             favImageView.setOnClickListener(this);
             likeImageView.setOnClickListener(this);
             dislikeImageView.setOnClickListener(this);
