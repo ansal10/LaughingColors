@@ -105,7 +105,7 @@ public class MainContentAdapter extends RecyclerView.Adapter {
             this.content = content;
             picasso.load(content.imageUrl)
                     .error(R.drawable.ic_launcher)
-                    .placeholder(R.drawable.progress_animation)
+                    .placeholder(R.drawable.ic_launcher)
                     .into(imageView);
 
             UserData userData = UserData.getInstance();
